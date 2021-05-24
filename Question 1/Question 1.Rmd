@@ -1,0 +1,84 @@
+---
+title: "Question 1"
+subtitle: "20903936"
+
+documentclass: "elsarticle"
+
+Thesis_FP: FALSE
+Entry 1: May 2021
+Email1: “20903936sun.ac.za” 
+
+keywords: "Data Science \\sep R Studio \\sep CRAN" 
+
+# ----- Manage headers and footers:
+TopLHeader: \leftmark
+BottomRFooter: "\\footnotesize Page \\thepage"
+addtoprule: TRUE
+addfootrule: TRUE               
+
+# --------- page margins:
+margin: 2.3
+bottom: 2 
+top: 2.5 
+HardSet_layout: TRUE 
+
+# ---------- General:
+RemovePreprintSubmittedTo: TRUE 
+toc: FALSE                       
+numbersections: TRUE             
+fontsize: 11pt                  
+linestretch: 1.2                
+link-citations: TRUE            
+
+output:
+  pdf_document:
+    keep_tex: TRUE
+    template: /Users/mathlogonolomashitisho/Desktop/Economics Masters /Semester 1/Data Science/20903936 Practical Test/Question 1/Tex/TexDefault.txt
+    fig_width: 3.5
+    fig_height: 3.5
+abstract: |
+  Write a brief description of the problem at hand.
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, fig.width = 6, fig.height = 5, fig.pos="H", fig.pos = 'H')
+library(pacman)
+pacman::p_load(tidyverse, jtools)
+if(!require(lubridate)) library(lubridate)
+
+gc() # garbage collection - It can be useful to call gc after a large object has been removed, as this may prompt R to return memory to the operating system.
+
+
+```
+
+# Introduction 
+
+Purpose of the study.
+Variable description, exploratory analysis.
+
+# Answers
+
+```{r, echo=FALSE}
+
+
+
+```
+
+```{r, echo=FALSE,  warning =  FALSE, fig.align = 'center', fig.cap = ".\\label{Figure1}", fig.ext = 'png', fig.height = 5, fig.width = 7}
+
+
+
+```
+
+
+Interpretation
+
+\newpage
+
+# More Answers
+
+More interpretations
+
+Make references to figures ie. Figure \ref{Figure1}, Interpret the figure above
+
