@@ -76,22 +76,43 @@ above_80 <- my_data %>% filter(Rotten.Tomatoes > 80) %>% select(Film,Audience.Sc
 
 print(above_80)
 ```
+As can be seen above, where the Rotten Tomatoes had an above 80 rating, the Audience ratings were not above 85% all the time. 
 
 #Theory 2 
 
+Our dear friend further suggested that Disney Flims may not have had the highest grossing numbers,however they've always been the most profitable of all the leading studios.
+
 ```{r  echo=FALSE}
 
+#barplot_movies(data=my_data,fill=Lead.Studio,y=Profitability,x=Lead.Studio,title="Profitability of Films of Each Studio",xlab="Lead.Studio",ylab="Profitability")
 
+g <- ggplot(my_data, aes(fill=Lead.Studio, y=Profitability, x=Lead.Studio)) + 
+    geom_bar(position="dodge", stat="identity") +
+    ggtitle("Profitability of Films of Each Studio") +
+    theme_classic() +
+    ylab ("Profitability")+
+    xlab("Lead.Studio")
+
+g
 ```
 
 #Theory 3
 
+The third assertion  made by our dear friend is that audiences are always drawn to the highest grossing Films. In fact she says claims that "the correlation between the world wide grossing numbers and audience scores would be near 80%."
+
 ```{r  echo=FALSE}
+
+#if(!require(devtools)) install.packages("devtools")
+#library("devtools")
+
+my_data <- my_data %>% rename(Audience.Score = Audience..score.., Rotten.Tomatoes = Rotten.Tomatoes..)
+
+cor(my_data$Worldwide.Gross, my_data$Audience.Score)
 
 
 ```
 
 #Conclusion
 
-
+It is clear that our friend is misguided. That data clearly shows that her theory ascertions are not ture. 
 

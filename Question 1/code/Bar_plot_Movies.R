@@ -1,5 +1,14 @@
 
-barplot_movies <- function(data,title,x,y){
+barplot_movies <- function(data,fill,y,x,title,xlab,ylab){
   
-  ggplot(data,aes(x,y),)
+  g <- ggplot(data=my_data, aes(fill=fill, y, x)) + 
+    geom_bar(position="dodge", stat="identity") +
+    ggtitle(title) +
+    theme_classic() +
+    ylab (ylab)+
+    xlab(xlab)
+  
+  g
 }
+
+
