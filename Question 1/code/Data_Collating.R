@@ -12,7 +12,7 @@ library(tidyverse)
     datcolat <-
         list.files(Datroot, full.names = T, recursive = T) %>%
         # Ensure you only load the csv's, not the README.txt.
-        .[!grepl(".txt", .)] %>%
+        .[!grepl(".csv", .)] %>%
         as.list() %>%
         map(~silentread(.)) %>% bind_rows()
         # equivalent to using map_df

@@ -1,0 +1,72 @@
+---
+title: "Question 2 Answer: Forbes"
+author: '20903936'
+date: "24/05/2021"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+rm(list=ls())  
+graphics.off() 
+
+```
+
+#Data Import
+
+
+
+```{r results='hide',message=FALSE}
+
+library(plyr)
+library(readr)
+library(tidyverse)
+dir()
+mydir = "/Users/mathlogonolomashitisho/Desktop/Economics Masters /Semester 1/Data Science/20903936 Practical Test/20903936-Practical-Test-2021/Question 2/data"
+myfiles = list.files(path=mydir, pattern=".csv", full.names=TRUE)
+myfiles
+
+```
+
+
+```{r message=FALSE}
+#To upload all files and create a dataset 
+data_csv = ldply(myfiles, read_csv)
+
+glimpse(data_csv)
+
+#transforming the NetWorth to factor
+
+data_csv_real<- data_csv %>% mutate(NetWorth = as.factor(NetWorth),Age=as.factor(Age))
+
+glimpse(data_csv_real)
+```
+
+#Quick plot: Global Billionaire Age Distribution
+
+The plot shows that 
+
+```{r eval=FALSE}
+
+ e <- ggplot(data=data_csv_real,aes(Age,NetWorth)) +
+  geom_histogram() +
+  ggtitle("Billionaire Age vs NetWorth Distribution")  +
+   theme_classic() +
+    ylab ("Net Worth")+
+    xlab("Age")
+
+e
+```
+#Quickplot 2 Ten Least Billionare 
+
+```{r}
+
+least_10 <- data_csv_real %>% arrange(Age,NetWorth) %>% head(10)
+least_10
+ 
+```
+It looks like the youngest billionaire is Kevin David Lehmann, worth $3.3B. He is from germany and is in the retail and fashion industry. 
+
+#Conlcusion 
+
+It seems that the 

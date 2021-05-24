@@ -66,9 +66,9 @@ glimpse(my_data)
 
 The first theory that our friend suggested was that she firmly remembers that Rotten Tomatoes was always a great review platform. And if a movie had a rating of more than 80% on Rotten Tomatoes, audiences would rate it above 85% every time.
 
-```{r  echo=FALSE}
+```{r  ,eval=FALSE}
 
-#Renaming the vairables 
+#Renaming the variables 
 
 my_data <- my_data %>% rename(Audience.Score = Audience..score.., Rotten.Tomatoes = Rotten.Tomatoes..)
 
@@ -84,6 +84,7 @@ Our dear friend further suggested that Disney Flims may not have had the highest
 
 ```{r  echo=FALSE}
 
+#Tried to use a function I created here, but couldnt find the issues.
 #barplot_movies(data=my_data,fill=Lead.Studio,y=Profitability,x=Lead.Studio,title="Profitability of Films of Each Studio",xlab="Lead.Studio",ylab="Profitability")
 
 g <- ggplot(my_data, aes(fill=Lead.Studio, y=Profitability, x=Lead.Studio)) + 
@@ -100,15 +101,16 @@ g
 
 The third assertion  made by our dear friend is that audiences are always drawn to the highest grossing Films. In fact she says claims that "the correlation between the world wide grossing numbers and audience scores would be near 80%."
 
-```{r  echo=FALSE}
+```{r  }
 
 #if(!require(devtools)) install.packages("devtools")
 #library("devtools")
 
 my_data <- my_data %>% rename(Audience.Score = Audience..score.., Rotten.Tomatoes = Rotten.Tomatoes..)
 
-cor(my_data$Worldwide.Gross, my_data$Audience.Score)
-
+correlation <- cor.test(my_data$Worldwide.Gross,my_data 
+                        $Audience.Score..,method="pearson")
+correlation 
 
 ```
 
